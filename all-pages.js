@@ -37,9 +37,11 @@ const replaceRelatedPostEngagement = () => {
     });
 }
 
-// TODO: Hide the icon on the bell showing how many notifications you've received
+// Hide the icon on the bell showing how many notifications you've received
+// TODO: this is untested, I need a notification first
 const hideNotificationBell = () => {
-
+    const notificationCount = document.querySelector('.notifications-number');
+    notificationCount && notificationCount.remove();
 }
 
 // DASHBOARD -------------------
