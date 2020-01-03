@@ -48,7 +48,7 @@ const hideNotificationBell = () => {
 
 // Hide the top two rows on the dashboard completely
 const hideDashboardStatistics = () => {
-    const actions = document.querySelector('.actions')
+    const actions = document.querySelector('.dashboard-container .actions')
     actions && actions.remove();
     const analytics = document.querySelector('.dashboard-analytics-header-wrapper')
     analytics && analytics.remove();
