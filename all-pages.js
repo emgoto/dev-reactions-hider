@@ -38,7 +38,6 @@ const replaceRelatedPostEngagement = () => {
 }
 
 // Hide the icon on the bell showing how many notifications you've received
-// TODO: this is untested, I need a notification first
 const hideNotificationBell = () => {
     const notificationCount = document.querySelector('.notifications-number');
     notificationCount && notificationCount.remove();
@@ -66,6 +65,7 @@ const hideArticleStatistics = () => {
 // NOTIFICATIONS PAGE ----------------
 
 // Hide any notifications that contain "reacted to" or "followed you"
+// Also hide any milestone notifications e.g. "Your post passed 64 reactions"
 const hideReactNotifications = () => {
     const notifications = Array.from(document.querySelectorAll('.single-notification'));
 
@@ -80,6 +80,20 @@ const hideReactNotifications = () => {
                     if (value.includes('reacted to') || value.includes('followed you')) {
                         notification.remove();
                         break loop;
+                    }
+                }
+            }
+
+            const milestoneContent = notification.querySelector('.badge-title');
+            const milestoneChildren = milestoneContent ? Array.from(milestoneContent.childNodes) : [];
+            loop2:
+            for (let node of milestoneChildren) {
+                console.log()
+                if (isTextNode(node) && node.nodeValue) {
+                    const value = node.nodeValue;
+                    if (value.includes('Your post')) {
+                        notification.remove();
+                        break loop2;
                     }
                 }
             }
