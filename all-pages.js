@@ -39,7 +39,7 @@ const replaceRelatedPostEngagement = () => {
 
 // Hide the icon on the bell showing how many notifications you've received
 const hideNotificationBell = () => {
-    const notificationCount = document.querySelector('.notifications-number');
+    const notificationCount = document.querySelector('#notifications-number');
     notificationCount && notificationCount.remove();
 }
 
